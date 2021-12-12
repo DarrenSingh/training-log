@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "training-log",
+    "slug": "training-log",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "training-log"
+}
