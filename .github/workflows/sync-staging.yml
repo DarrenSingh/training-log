@@ -1,0 +1,25 @@
+name: Sync Staging with Main
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # Enable manual triggering
+
+jobs:
+  sync-staging:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Reset staging to match main
+        run: |
+          git fetch origin main
+          git checkout staging
+          git reset --hard origin/main
+
+      - name: Push changes to staging
+        run: |
+          git push --force-with-lease origin staging
