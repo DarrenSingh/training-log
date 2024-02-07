@@ -20,11 +20,10 @@ jobs:
         with:
           node-version: '14' # You can specify Node.js version 14 or higher
 
-      - name: Reset staging to match main
+      - name: Create staging branch if it doesn't exist
         run: |
           git fetch origin main
-          git checkout staging
-          git reset --hard origin/main
+          git checkout -B staging origin/main
 
       - name: Push changes to staging
         run: |
