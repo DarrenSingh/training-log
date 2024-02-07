@@ -25,6 +25,6 @@ jobs:
           git fetch origin main
           git checkout -B staging origin/main
 
-      - name: Push changes to staging
+      - name: Force-push changes to staging
         run: |
-          git push --force-with-lease origin staging
+          git push --force origin staging
