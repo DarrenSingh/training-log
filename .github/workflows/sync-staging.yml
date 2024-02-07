@@ -9,10 +9,16 @@ on:
 jobs:
   sync-staging:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          ref: 'refs/heads/main' # Explicitly checkout main branch
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14' # You can specify Node.js version 14 or higher
 
       - name: Reset staging to match main
         run: |
